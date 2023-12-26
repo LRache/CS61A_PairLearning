@@ -91,7 +91,11 @@ def multiple(a, b):
     >>> multiple(14, 21)
     42
     """
-    "*** YOUR CODE HERE ***"
+    n = 1
+    while True:
+        if n % a == 0 and n % b == 0:
+            return n
+        n += 1
 
 
 
@@ -121,5 +125,12 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
+    def c(n):
+        def f(x):
+            l = [f1, f2, f3]
+            for i in range(n):
+                x = l[i % 3](x)
+            return x
+        return f
+    return c
 
